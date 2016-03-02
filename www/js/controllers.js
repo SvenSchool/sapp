@@ -41,14 +41,22 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+.controller('GroupsCtrl', function($scope, $http) {
+
+  $http.get("http://sapp.dev/api/v1/students?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjQsImlzcyI6Imh0dHA6XC9cL3NhcHAuZGV2XC9hcGlcL3YxXC9hdXRoIiwiaWF0IjoxNDU2OTE2MzA4LCJleHAiOjE0NTY5MTk5MDgsIm5iZiI6MTQ1NjkxNjMwOCwianRpIjoiYzJiODM0ZWVlNTU3NjZkNzZhMTkwNTM5M2Q3Yjg2N2QifQ.xUNuXRfb6fqntIHGJSIMghqkQUTj_moe3nLqzfKY9dc")
+    .then(function(response) {
+        var test = response.data;
+
+        console.log(test);
+    });
+
+  $scope.groups = [
+    { name: 'Reggae', id: 1 },
+    { name: 'Chill', id: 2 },
+    { name: 'Dubstep', id: 3 },
+    { name: 'Indie', id: 4 },
+    { name: 'Rap', id: 5 },
+    { name: 'Cowbell', id: 6 }
   ];
 })
 
